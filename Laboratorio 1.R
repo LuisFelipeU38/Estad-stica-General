@@ -67,6 +67,83 @@ grid()
 
 # Bloque 1
 
+# Problema 4. Clasifique las variables de la base de datos dependiendo si son cualitativas o cuantitativas, discretas o continuas, nominales u ordinales.
+
+'''
+Cualitativas:
+
+- Nominales:
+  Categoría (numérica)
+  Sede (categórica)
+  Clasificación_Bachillerato (categórica)
+  Clasificación_Primaria (categórica)
+  Estímulo_Municipal (numérica)
+  Beca_Municipal (numérica)
+  Estímulo_Departamental (numérica)
+  Estímulo_Nacional (numérica)
+  Beca_Nacional (numérica)
+
+Cuantitativas:
+
+- Discretas:
+  ID_estudiante (numérica)
+  
+- Continuas:
+  Interés_Biología (numérica)
+  Puntaje_Biología (numérica)
+  Interés_Lenguaje (numérica)
+  Puntaje_Lenguaje (numérica)
+  Interés_Matemáticas (numérica)
+  Puntaje_Matemáticas (numérica)
+  Interés_Humanidades (numérica)
+  Puntaje_Humanidades (numérica)
+  Beca_Departamental (numérica)
+
+'''
+
+# Problema 5. Realice e interprete un análisis de frecuencias absolutas y relativas para las variables Categoría, Sede, Clasificación_Bachillerato y  Clasificación_Primaria.
+
+# Cálculo de frecuencias absolutas para la variable Categoría
+absolutas_categoria <- table(datos_estudiantes$Categoría)
+print("Frecuencias absolutas para la variable Categoría:")
+print(absolutas_categoria)
+
+# Cálculo de frecuencias relativas para la variable Categoría
+relativas_categoria <- prop.table(absolutas_categoria) * 100
+print("Frecuencias relativas para la variable Categoría (%):")
+print(relativas_categoria)
+
+# Cálculo de frecuencias absolutas para la variable Sede
+absolutas_sede <- table(datos_estudiantes$Sede)
+print("Frecuencias absolutas para la variable Sede:")
+print(absolutas_sede)
+
+# Cálculo de frecuencias relativas para la variable Sede
+relativas_sede <- prop.table(absolutas_sede) * 100
+print("Frecuencias relativas para la variable Sede (%):")
+print(relativas_sede)
+
+# Cálculo de frecuencias absolutas para la variable Clasificación_Bachillerato
+absolutas_bachillerato <- table(datos_estudiantes$Clasificación_Bachillerato)
+print("Frecuencias absolutas para la variable Clasificación_Bachillerato:")
+print(absolutas_bachillerato)
+
+# Cálculo de frecuencias relativas para la variable Clasificación_Bachillerato
+relativas_bachillerato <- prop.table(absolutas_bachillerato) * 100
+print("Frecuencias relativas para la variable Clasificación_Bachillerato (%):")
+print(relativas_bachillerato)
+
+# Cálculo de frecuencias absolutas para la variable Clasificación_Primaria
+absolutas_primaria <- table(datos_estudiantes$Clasificación_Primaria)
+print("Frecuencias absolutas para la variable Clasificación_Primaria:")
+print(absolutas_primaria)
+
+# Cálculo de frecuencias relativas para la variable Clasificación_Primaria
+relativas_primaria <- prop.table(absolutas_primaria) * 100
+print("Frecuencias relativas para la variable Clasificación_Primaria (%):")
+print(relativas_primaria)
+
+# Problema 6.
 ## Problema 12
 
 # Tabla de frecuencias por sede y rendimiento primaria
@@ -78,4 +155,4 @@ ftable(Estudiantes$Sede, Estudiantes$Clasificación_Bachillerato)
 prop.table(ftable(Estudiantes$Sede, Estudiantes$Clasificacion_Bachillerato))
 
 # De acuerdo cob la salida computacional en la cual se presenta la distribucion de frecuencias absolutas 
-(conteos) y relativa, se puede establecer que la regla aplicada por la secretaria de educacion fue igua
+#(conteos) y relativa, se puede establecer que la regla aplicada por la secretaria de educacion fue igua
