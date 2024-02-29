@@ -144,20 +144,34 @@ relativas_primaria <- prop.table(absolutas_primaria) * 100
 print("Frecuencias relativas para la variable Clasificación_Primaria (%):")
 print(relativas_primaria)
 
-### Problema 6. Obtenga una tabla de frecuencias donde se muestre la cantidad de estudiantes clasificados en bachillerato con rendimiento superior por cada tipo de sede.
+### Problema 6. Obtenga una tabla de frecuencias donde se muestre la cantidad de estudiantes clasificados en bachillerato con rendimiento superior por cada tipo de sede. Haga un diagrama de barras para esta información, interprete. 
 
 superior_bachillerato <- datos_estudiantes[datos_estudiantes$Clasificación_Bachillerato == "REND_SUPERIOR", ]
 tabla_frecuencias <- table(superior_bachillerato$Sede)
 print("Tabla de frecuencias de estudiantes clasificados en bachillerato con rend superior por tipo de sede:")
 print(tabla_frecuencias)
 
-barplot(tabla_frecuencias,
-        main = "Estudiantes clasificados en bachillerato con rendimiento superior por tipo de sede",
-        xlab = "Tipo de sede",
-        ylab = "Cantidad de estudiantes",
-        col = "skyblue")
-### Problema 7.
+barplot(tabla_frecuencias, main = "Estudiantes clasificados en bachillerato con rendimiento superior por tipo de sede", xlab = "Tipo de sede", ylab = "Cantidad de estudiantes", col = "skyblue")
 
+# Se puede entender que la mayor cantidad de estudiantes clasificados en bachillerato con rendimiento superior se encuentran las sedes de urbana ciudad y urbana municipio. Por otra parte, las sedes rural y rural etnico con las de menor rendimiento superior.
+
+### Problema 7. Desarrolle el ejercicio anterior para los tipos de rendimiento restantes.
+
+medio_bachillerato <- datos_estudiantes[datos_estudiantes$Clasificación_Bachillerato == "REND_MEDIO", ]
+tabla_frecuencias <- table(medio_bachillerato$Sede)
+print("Tabla de frecuencias de estudiantes clasificados en bachillerato con rend medio por tipo de sede:")
+print(tabla_frecuencias)
+
+barplot(tabla_frecuencias, main = "Estudiantes clasificados en bachillerato con rendimiento medio por tipo de sede", xlab = "Tipo de sede", ylab = "Cantidad de estudiantes", col = "skyblue")
+# Se puede entender que hay mayor cantidad de estudiantes con rendimiento medio en la sede rural y urbana municipio.
+
+inferior_bachillerato <- datos_estudiantes[datos_estudiantes$Clasificación_Bachillerato == "REND_INFERIOR", ]
+tabla_frecuencias <- table(inferior_bachillerato$Sede)
+print("Tabla de frecuencias de estudiantes clasificados en bachillerato con rend inferior por tipo de sede:")
+print(tabla_frecuencias)
+
+barplot(tabla_frecuencias, main = "Estudiantes clasificados en bachillerato con rendimiento inferior por tipo de sede", xlab = "Tipo de sede", ylab = "Cantidad de estudiantes", col = "skyblue")
+# Se puede entender que hay mayor cantidad de estudiantes con rend inferior en rural y rural etnico.
 
 ## Problema 12
 
