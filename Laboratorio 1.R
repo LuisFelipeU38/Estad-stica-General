@@ -1,7 +1,7 @@
-'''Laboratorio 1.
+# Laboratorio 1.
 
-Bloque 0.
-Problema 1. '''
+## Bloque 0.
+### Problema 1. 
 
 # Asigne a una variable llamada u el n ́umero 318.
 
@@ -34,7 +34,7 @@ v_3 <- seq(113, 245, by = 3) ;v_3
 # Intente desarrollar el ejercicio anterior utilizando el c´odigo 113:245,by=3 ¿Funciona?
 # 113:245, by = 3 # Se genera un error porque la sintaxis 113:245 solo especifica el inicio y el final de la secuencia y no permite especificar un incremento como argumento.
 
-## Problema 2.
+### Problema 2.
 
 # Genere un vector con números del 113 al 128 y guárdelo en una variable llamada vector  1. Utilice la función matriz. Imprima. ¿Cuál es la diferencia con v_1?
 
@@ -65,43 +65,44 @@ matriz_1[3, 2] <- 118 ;matriz_1 # Se cambia el valor de la posicion 3,2 por 118.
 plot(matriz_1[,2], pch = 20)
 grid()
 
-# Bloque 1
+## Bloque 1
 
-# Problema 4. Clasifique las variables de la base de datos dependiendo si son cualitativas o cuantitativas, discretas o continuas, nominales u ordinales.
+library(readxl)
+datos_estudiantes <- read_excel("C:/Users/Luis Felipe/Documents/Estadistica/Estudiantes.xlsx")
 
-'''
-Cualitativas:
+### Problema 4. Clasifique las variables de la base de datos dependiendo si son cualitativas o cuantitativas, discretas o continuas, nominales u ordinales.
 
-- Nominales:
-  Categoría (numérica)
-  Sede (categórica)
-  Clasificación_Bachillerato (categórica)
-  Clasificación_Primaria (categórica)
-  Estímulo_Municipal (numérica)
-  Beca_Municipal (numérica)
-  Estímulo_Departamental (numérica)
-  Estímulo_Nacional (numérica)
-  Beca_Nacional (numérica)
+# Sol. problema 4
+#Cualitativas:
 
-Cuantitativas:
+## - Nominales:
+#  Categoría (numérica)
+#  Sede (categórica)
+#  Clasificación_Bachillerato (categórica)
+#  Clasificación_Primaria (categórica)
+#  Estímulo_Municipal (numérica)
+#  Beca_Municipal (numérica)
+#  Estímulo_Departamental (numérica)
+#  Estímulo_Nacional (numérica)
+#  Beca_Nacional (numérica)
 
-- Discretas:
-  ID_estudiante (numérica)
+#Cuantitativas:
+
+## - Discretas:
+#  ID_estudiante (numérica)
   
-- Continuas:
-  Interés_Biología (numérica)
-  Puntaje_Biología (numérica)
-  Interés_Lenguaje (numérica)
-  Puntaje_Lenguaje (numérica)
-  Interés_Matemáticas (numérica)
-  Puntaje_Matemáticas (numérica)
-  Interés_Humanidades (numérica)
-  Puntaje_Humanidades (numérica)
-  Beca_Departamental (numérica)
+## - Continuas:
+#  Interés_Biología (numérica)
+#  Puntaje_Biología (numérica)
+#  Interés_Lenguaje (numérica)
+#  Puntaje_Lenguaje (numérica)
+#  Interés_Matemáticas (numérica)
+#  Puntaje_Matemáticas (numérica)
+#  Interés_Humanidades (numérica)
+#  Puntaje_Humanidades (numérica)
+#  Beca_Departamental (numérica)
 
-'''
-
-# Problema 5. Realice e interprete un análisis de frecuencias absolutas y relativas para las variables Categoría, Sede, Clasificación_Bachillerato y  Clasificación_Primaria.
+### Problema 5. Realice e interprete un análisis de frecuencias absolutas y relativas para las variables Categoría, Sede, Clasificación_Bachillerato y  Clasificación_Primaria.
 
 # Cálculo de frecuencias absolutas para la variable Categoría
 absolutas_categoria <- table(datos_estudiantes$Categoría)
@@ -143,7 +144,21 @@ relativas_primaria <- prop.table(absolutas_primaria) * 100
 print("Frecuencias relativas para la variable Clasificación_Primaria (%):")
 print(relativas_primaria)
 
-# Problema 6.
+### Problema 6. Obtenga una tabla de frecuencias donde se muestre la cantidad de estudiantes clasificados en bachillerato con rendimiento superior por cada tipo de sede.
+
+superior_bachillerato <- datos_estudiantes[datos_estudiantes$Clasificación_Bachillerato == "REND_SUPERIOR", ]
+tabla_frecuencias <- table(superior_bachillerato$Sede)
+print("Tabla de frecuencias de estudiantes clasificados en bachillerato con rend superior por tipo de sede:")
+print(tabla_frecuencias)
+
+barplot(tabla_frecuencias,
+        main = "Estudiantes clasificados en bachillerato con rendimiento superior por tipo de sede",
+        xlab = "Tipo de sede",
+        ylab = "Cantidad de estudiantes",
+        col = "skyblue")
+### Problema 7.
+
+
 ## Problema 12
 
 # Tabla de frecuencias por sede y rendimiento primaria
