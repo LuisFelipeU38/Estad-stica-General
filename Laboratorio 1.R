@@ -173,7 +173,73 @@ print(tabla_frecuencias)
 barplot(tabla_frecuencias, main = "Estudiantes clasificados en bachillerato con rendimiento inferior por tipo de sede", xlab = "Tipo de sede", ylab = "Cantidad de estudiantes", col = "skyblue")
 # Se puede entender que hay mayor cantidad de estudiantes con rend inferior en rural y rural etnico.
 
-## Problema 12
+### Problema 8. Obtenga un listado que contenga los puntajes en matemáticas de los estudiantes que manifestaron interés en esta  ́área.
+
+interes_mate <- datos_estudiantes[datos_estudiantes$Interés_Matemáticas == 1, ]
+puntajes_mate_interes <- interes_mate$Puntaje_Matemáticas
+print("Listado de puntajes en matemáticas de los estudiantes interesados:")
+print(puntajes_mate_interes)
+
+### Problema 9. ¿Cual es el puntaje promedio de los estudiantes en cada  ́área del conocimient ? Interprete.
+
+promedio_biologia <- mean(datos_estudiantes$Puntaje_Biología)
+print("Puntaje promedio en Biología:") ;promedio_biologia
+
+promedio_lenguaje <- mean(datos_estudiantes$Puntaje_Lenguaje)
+print("Puntaje promedio en Lenguaje:") ;print(promedio_lenguaje)
+
+promedio_matematicas <- mean(datos_estudiantes$Puntaje_Matemáticas)
+print("Puntaje promedio en Matemáticas:") ;print(promedio_matematicas)
+
+promedio_humanidades <- mean(datos_estudiantes$Puntaje_Humanidades)
+print("Puntaje promedio en Humanidades:") ;print(promedio_humanidades)
+
+# Los estudiantes tienen un mejor promedio en humanidades y tienen el peor promedio en lenguaje.
+
+### Problema 10. ¿Qué categoría de colegio tiene mas puntaje acumulado en cada  ́área? Expréselo en valores y en porcentaje por categoría de colegio.
+
+# Calcular el puntaje acumulado por categoría de colegio en cada área del conocimiento
+puntaje_acum_biologia <- tapply(datos_estudiantes$Puntaje_Biología, datos_estudiantes$Categoría, sum)
+puntaje_acum_lenguaje <- tapply(datos_estudiantes$Puntaje_Lenguaje, datos_estudiantes$Categoría, sum)
+puntaje_acum_matematicas <- tapply(datos_estudiantes$Puntaje_Matemáticas, datos_estudiantes$Categoría, sum)
+puntaje_acum_humanidades <- tapply(datos_estudiantes$Puntaje_Humanidades, datos_estudiantes$Categoría, sum)
+
+# Calcular el total de puntaje acumulado en cada área del conocimiento
+total_puntaje_biologia <- sum(datos_estudiantes$Puntaje_Biología)
+total_puntaje_lenguaje <- sum(datos_estudiantes$Puntaje_Lenguaje)
+total_puntaje_matematicas <- sum(datos_estudiantes$Puntaje_Matemáticas)
+total_puntaje_humanidades <- sum(datos_estudiantes$Puntaje_Humanidades)
+
+# Calcular el porcentaje de puntaje acumulado por categoría de colegio en cada área del conocimiento
+porcentaje_biologia <- (puntaje_acum_biologia / total_puntaje_biologia) * 100
+porcentaje_lenguaje <- (puntaje_acum_lenguaje / total_puntaje_lenguaje) * 100
+porcentaje_matematicas <- (puntaje_acum_matematicas / total_puntaje_matematicas) * 100
+porcentaje_humanidades <- (puntaje_acum_humanidades / total_puntaje_humanidades) * 100
+
+# Determinar la categoría de colegio con mayor porcentaje de puntaje acumulado en cada área del conocimiento
+categoria_max_biologia <- names(porcentaje_biologia)[which.max(porcentaje_biologia)]
+categoria_max_lenguaje <- names(porcentaje_lenguaje)[which.max(porcentaje_lenguaje)]
+categoria_max_matematicas <- names(porcentaje_matematicas)[which.max(porcentaje_matematicas)]
+categoria_max_humanidades <- names(porcentaje_humanidades)[which.max(porcentaje_humanidades)]
+
+# Imprimir los resultados
+print("Categoría de colegio con mayor puntaje acumulado en Biología:")
+print(puntaje_acum_biologia)
+print("Porcentaje por categoría de colegio en Biología:")
+print(porcentaje_biologia)
+print("Categoría de colegio con mayor puntaje acumulado en Lenguaje:")
+print(puntaje_acum_lenguaje)
+print("Porcentaje por categoría de colegio en Lenguaje:")
+print(porcentaje_lenguaje)
+print("Categoría de colegio con mayor puntaje acumulado en Matemáticas:")
+print(puntaje_acum_matematicas)
+print("Porcentaje por categoría de colegio en Matemáticas:")
+print(porcentaje_matematicas)
+print("Categoría de colegio con mayor puntaje acumulado en Humanidades:")
+print(puntaje_acum_humanidades)
+print("Porcentaje por categoría de colegio en Humanidades:")
+print(porcentaje_humanidades)
+## Problema 12 
 
 # Tabla de frecuencias por sede y rendimiento primaria
 
